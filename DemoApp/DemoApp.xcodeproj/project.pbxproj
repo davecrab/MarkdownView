@@ -101,7 +101,7 @@
 			mainGroup = 38A580A62CC8D6D9001EDFCA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				8C21E5AE2D9E7FB20097554E /* XCLocalSwiftPackageReference "../../MarkdownView" */,
+				7C31BAFD2DC2A21D00B6F589 /* XCLocalSwiftPackageReference "../../MarkdownView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 38A580B02CC8D6D9001EDFCA /* Products */;
@@ -257,7 +257,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = CJ9X49H2WL;
+				DEVELOPMENT_TEAM = VSQ4ATD792;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -296,7 +296,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = CJ9X49H2WL;
+				DEVELOPMENT_TEAM = VSQ4ATD792;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -350,7 +350,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		8C21E5AE2D9E7FB20097554E /* XCLocalSwiftPackageReference "../../MarkdownView" */ = {
+		7C31BAFD2DC2A21D00B6F589 /* XCLocalSwiftPackageReference "../../MarkdownView" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../MarkdownView;
 		};

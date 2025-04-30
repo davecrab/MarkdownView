@@ -238,26 +238,46 @@ struct CmarkNodeVisitor: @preconcurrency MarkupVisitor {
         else { return descendInto(link) }
         
         let nodeView = descendInto(link)
+        struct HoverableLinkCapsule<Content: View>: View {
+            let content: Content
+            let backgroundColor: Color
+            let action: (() -> Void)?
+            @State private var isHovered = false
+
+            var body: some View {
+                content
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(
+                        Capsule()
+                            .fill(backgroundColor)
+                            .brightness(isHovered ? 0.1 : 0)
+                    )
+                    .contentShape(.rect)
+                    #if os(macOS)
+                    .onHover { hovering in isHovered = hovering }
+                    #endif
+                    .onTapGesture {
+                        action?()
+                    }
+            }
+        }
         switch nodeView.contentType {
         case .text:
             return MarkdownNodeView {
-                nodeView.asText!
-                    .contentShape(.rect)
+                HoverableLinkCapsule(content: nodeView.asText!, backgroundColor: configuration.linkBackgroundColor, action: {
                     #if os(macOS)
-                    .onTapGesture {
-                        NSWorkspace.shared.open(url)
-                    }
+                    NSWorkspace.shared.open(url)
                     #elseif !os(watchOS) && !os(tvOS)
-                    .onTapGesture {
-                        UIApplication.shared.open(url)
-                    }
+                    UIApplication.shared.open(url)
                     #endif
-                    .foregroundStyle(configuration.linkTintColor)
+                })
+                .foregroundStyle(configuration.linkTintColor)
             }
         case .view:
             return MarkdownNodeView {
                 Link(destination: url) {
-                    nodeView
+                    HoverableLinkCapsule(content: nodeView, backgroundColor: configuration.linkBackgroundColor, action: nil)
                 }
                 .foregroundStyle(configuration.linkTintColor)
             }

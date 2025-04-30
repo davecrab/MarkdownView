@@ -15,6 +15,8 @@ struct MarkdownRendererConfiguration: Equatable, AllowingModifyThroughKeyPath, S
     var math: Math = Math()
     
     var linkTintColor: Color = .accentColor
+    /// Background color for pill-shaped links
+    var linkBackgroundColor: Color = Color.gray.opacity(0.15)
     var inlineCodeTintColor: Color = .accentColor
     var blockQuoteTintColor: Color = .accentColor
     
